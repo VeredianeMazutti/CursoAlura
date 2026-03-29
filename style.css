@@ -1,95 +1,3 @@
-/* Light/Dark mode base */
-body.dark-mode {
-    background: #000;
-    color: #e0e0ff;
-}
-body.light-mode {
-    background: #f5f6fa;
-    color: #23234f;
-}
-
-body.light-mode .profile {
-    background: linear-gradient(135deg, #e0e7ff 60%, #c3dafe 100%);
-    border: 1.5px solid #b3b3e6;
-    box-shadow: 0 4px 24px 0 #b3b3e6, 0 0 12px 0 #fff2;
-}
-body.light-mode .profile img {
-    background: #e0e7ff;
-    border: 3px solid #b3b3e6;
-    box-shadow: 0 2px 12px 0 #b3b3e6, 0 0 4px #fff inset;
-}
-body.light-mode figcaption {
-    color: #23234f;
-    text-shadow: 0 1px 4px #fff;
-}
-body.light-mode header h1 {
-    background: linear-gradient(90deg, #23234f 30%, #7f9cf5 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-body.light-mode #theme-toggle {
-    color: #23234f;
-}
-body.dark-mode #theme-toggle {
-    color: #e0e0ff;
-}
-@media (max-width: 700px) {
-    main {
-        padding: 1.2rem 0.2rem 1.5rem 0.2rem;
-    }
-    header h1 {
-        font-size: 1.15rem;
-        margin-bottom: 0.8rem;
-        padding: 0 0.2rem;
-        text-align: center;
-    }
-    .profiles {
-        flex-direction: column;
-        gap: 0.7rem;
-        align-items: center;
-        width: 100vw;
-        box-sizing: border-box;
-    }
-    .profile {
-        width: 98vw;
-        max-width: 380px;
-        padding: 0.7rem 0.2rem 0.4rem 0.2rem;
-        margin: 0 auto;
-    }
-    .profile img {
-        width: 55px;
-        height: 55px;
-    }
-    figcaption {
-        font-size: 0.92rem;
-    }
-}
-
-@media (max-width: 500px) {
-    main {
-        padding: 0.7rem 0.05rem 1rem 0.05rem;
-    }
-    header h1 {
-        font-size: 0.95rem;
-        margin-bottom: 0.5rem;
-        padding: 0 0.1rem;
-    }
-    .profiles {
-        gap: 0.4rem;
-    }
-    .profile {
-        width: 99vw;
-        max-width: 99vw;
-        padding: 0.4rem 0.05rem 0.2rem 0.05rem;
-    }
-    .profile img {
-        width: 38px;
-        height: 38px;
-    }
-    figcaption {
-        font-size: 0.75rem;
-    }
-}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
 
@@ -107,13 +15,20 @@ body {
     box-sizing: border-box;
 }
 
+body.dark-mode {
+    background: #000;
+    color: #e0e0ff;
+}
+
+body.light-mode {
+    background: #f5f6fa;
+    color: #23234f;
+}
+
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 0;
     pointer-events: none;
     background: radial-gradient(circle at 80% 20%, #a259ff55 0%, transparent 60%),
@@ -137,8 +52,6 @@ header h1 {
     font-weight: 700;
     margin-bottom: 2.2rem;
     letter-spacing: 2px;
-    color: #ffffff;
-    font-family: 'Roboto', Arial, sans-serif;
     text-transform: uppercase;
     background: linear-gradient(90deg, #a259ff 30%, #00d4ff 70%);
     -webkit-background-clip: text;
@@ -159,7 +72,7 @@ header h1 {
     box-shadow: 0 4px 32px 0 #2d1857, 0 0 24px 0 #a259ff55;
     transition: transform 0.22s, box-shadow 0.22s, background 0.22s, border 0.22s;
     cursor: pointer;
-    padding: 1.7rem 1.2rem 1.2rem 1.2rem;
+    padding: 1.7rem 1.2rem 1.2rem;
     text-align: center;
     width: 200px;
     border: 1.5px solid #3a1c71;
@@ -167,7 +80,6 @@ header h1 {
     overflow: hidden;
     backdrop-filter: blur(4px) saturate(1.2);
     background-clip: padding-box;
-    z-index: 1;
 }
 
 .profile:hover {
@@ -186,9 +98,6 @@ header h1 {
     object-fit: cover;
     background: #2d1857;
     box-shadow: 0 2px 24px 0 #a259ff99, 0 0 8px #00d4ff44 inset;
-    transition: border 0.2s, box-shadow 0.2s;
-    z-index: 1;
-    position: relative;
 }
 
 figcaption {
@@ -198,68 +107,59 @@ figcaption {
     margin-top: 0.7rem;
     letter-spacing: 1px;
     text-shadow: 0 1px 8px #2d1857, 0 0 2px #fff;
-    font-family: 'Roboto', Arial, sans-serif;
     text-transform: uppercase;
 }
 
-@media (max-width: 400px) {
-    html, body {
-        width: 100vw;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-    main {
-        padding: 1rem 0.1rem;
-    }
-    header h1 {
-        font-size: 1rem;
-        padding: 0 0.2rem;
-        margin-bottom: 0.7rem;
-        text-align: center;
-    }
-    .profiles {
-        gap: 0.5rem;
-        width: 100vw;
-        box-sizing: border-box;
-    }
-    .profile {
-        max-width: 99vw;
-        width: 99vw;
-        padding: 0.5rem 0.1rem 0.1rem 0.1rem;
-        margin: 0 auto;
-    }
-    .profile img {
-        width: 40px;
-        height: 40px;
-    }
-    figcaption {
-        font-size: 0.8rem;
-    }
+body.light-mode .profile {
+    background: linear-gradient(135deg, #e0e7ff 60%, #c3dafe 100%);
+    border: 1.5px solid #b3b3e6;
+    box-shadow: 0 4px 24px 0 #b3b3e6, 0 0 12px 0 #fff2;
 }
-        height: 90px;{
-    }
+
+body.light-mode .profile img {
+    background: #e0e7ff;
+    border: 3px solid #b3b3e6;
+    box-shadow: 0 2px 12px 0 #b3b3e6, 0 0 4px #fff inset;
+}
+
+body.light-mode figcaption {
+    color: #23234f;
+    text-shadow: 0 1px 4px #fff;
+}
+
+body.light-mode header h1 {
+    background: linear-gradient(90deg, #23234f 30%, #7f9cf5 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+body.light-mode #theme-toggle {
+    color: #23234f;
+}
+
+body.dark-mode #theme-toggle {
+    color: #e0e0ff;
 }
 
 @media (max-width: 700px) {
-
-    html,
-    body {
-        width: 100vw;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
     main {
-        padding: 1.5rem 0.2rem 2rem 0.2rem;
-        min-height: unset;
-        width: 100vw;
-        box-sizing: border-box;
+        padding: 1.2rem 0.2rem 1.5rem;
     }
 
     header h1 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        padding: 0 0.5rem;
+        font-size: 1.15rem;
+        margin-bottom: 0.8rem;
         text-align: center;
     }
 
@@ -267,11 +167,45 @@ figcaption {
         flex-direction: column;
         gap: 0.7rem;
         align-items: center;
-        width: 100vw;
-        box-sizing: border-box;
     }
 
     .profile {
         width: 90%;
+        max-width: 380px;
+        padding: 0.7rem 0.2rem 0.4rem;
+    }
+
+    .profile img {
+        width: 55px;
+        height: 55px;
+    }
+
+    figcaption {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        padding: 0.7rem 0.05rem 1rem;
+    }
+
+    header h1 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .profile {
+        width: 98%;
+        padding: 0.4rem 0.05rem 0.2rem;
+    }
+
+    .profile img {
+        width: 38px;
+        height: 38px;
+    }
+
+    figcaption {
+        font-size: 0.75rem;
     }
 }
